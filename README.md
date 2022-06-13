@@ -1,12 +1,12 @@
 # gRPC Elixir
 
+[![GitHub actions Status](https://github.com/wingyplus/grpc/workflows/CI/badge.svg)](https://github.com/elixir-grpc/grpc/actions)
+
 The forked version of https://github.com/elixir-grpc/grpc. Aim goals:
 
 * Make dependencies up-to-date.
 * Rely on https://github.com/elixir-protobuf/protobuf v0.10 and so on.
 * No override dependencies. (`cowlib` and `grpc_gun` for example).
-
-[![GitHub actions Status](https://github.com/wingyplus/grpc/workflows/CI/badge.svg)](https://github.com/elixir-grpc/grpc/actions)
 
 An Elixir implementation of [gRPC](http://www.grpc.io/).
 
