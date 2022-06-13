@@ -57,7 +57,7 @@ defmodule GRPC.Integration.ConnectionTest do
     try do
       point = Routeguide.Point.new(latitude: 409_146_138, longitude: -746_188_906)
       # The client try to upgrade TLS to v1.3 but it seems server doesn't accepting it. So
-      # temporary fixes the version to v1.2.
+      # temporary fixes by strict the version to v1.2.
       client_cred =
         GRPC.Credential.new(
           ssl: [certfile: @cert_path, keyfile: @key_path, versions: [:"tlsv1.2"]]
