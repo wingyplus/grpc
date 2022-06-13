@@ -1,23 +1,18 @@
 # gRPC Elixir
 
-[![Hex.pm](https://img.shields.io/hexpm/v/grpc.svg)](https://hex.pm/packages/grpc)
-[![Travis Status](https://travis-ci.org/elixir-grpc/grpc.svg?branch=master)](https://travis-ci.org/elixir-grpc/grpc)
-[![GitHub actions Status](https://github.com/elixir-grpc/grpc/workflows/CI/badge.svg)](https://github.com/elixir-grpc/grpc/actions)
-[![Inline docs](http://inch-ci.org/github/elixir-grpc/grpc.svg?branch=master)](http://inch-ci.org/github/elixir-grpc/grpc)
+The forked version of https://github.com/elixir-grpc/grpc. Aim goals:
+
+* Make dependencies up-to-date.
+* Rely on https://github.com/elixir-protobuf/protobuf v0.10 and so on.
+* No override dependencies. (`cowlib` and `grpc_gun` for example).
+
+[![GitHub actions Status](https://github.com/wingyplus/grpc/workflows/CI/badge.svg)](https://github.com/elixir-grpc/grpc/actions)
 
 An Elixir implementation of [gRPC](http://www.grpc.io/).
 
 **WARNING: Be careful to use it in production! Test and benchmark in advance.**
 
-**NOTICE: Erlang/OTP needs >= 20.3.2**
-
-**NOTICE: grpc_gun**
-
-Now `{:gun, "~> 2.0.0", hex: :grpc_gun}` is used in mix.exs because grpc depnds on Gun 2.0,
-but its stable version is not released. So I published a [2.0 version on hex](https://hex.pm/packages/grpc_gun)
-with a different name. So if you have other dependencies who depends on Gun, you need to use
-override: `{:gun, "~> 2.0.0", hex: :grpc_gun, override: true}`. Let's wait for this issue
-https://github.com/ninenines/gun/issues/229.
+**NOTICE: Erlang/OTP needs >= 21+**
 
 ## Installation
 
@@ -27,8 +22,6 @@ The package can be installed as:
   def deps do
     [
       {:grpc, github: "elixir-grpc/grpc"},
-      # 2.9.0 fixes some important bugs, so it's better to use ~> 2.9.0
-      {:cowlib, "~> 2.9.0", override: true}
     ]
   end
   ```
