@@ -2,34 +2,31 @@
 
 [![GitHub actions Status](https://github.com/wingyplus/grpc/workflows/CI/badge.svg)](https://github.com/wingyplus/grpc/actions)
 
-The forked version of https://github.com/elixir-grpc/grpc. Aim goals:
-
-* Make dependencies up-to-date.
-* Rely on https://github.com/elixir-protobuf/protobuf v0.10 and so on.
-* No override dependencies. (`cowlib` and `grpc_gun` for example).
-
-An Elixir implementation of [gRPC](http://www.grpc.io/).
-
 **WARNING: Be careful to use it in production! Test and benchmark in advance.**
 
-**NOTICE: Erlang/OTP needs >= 21+**
+An Elixir implementation of [gRPC](http://www.grpc.io/). This is the forked version of https://github.com/elixir-grpc/grpc. Aim goals:
+
+- Make dependencies up-to-date.
+- Rely on https://github.com/elixir-protobuf/protobuf v0.10 and so on.
+- No override dependencies. (`cowlib` and `grpc_gun` for example).
 
 ## Installation
 
-The package can be installed as:
+Currently, this package doesn't publish on hex.pm yet. You can install it by using `github` repo syntax:
 
-  ```elixir
-  def deps do
-    [
-      {:grpc, github: "elixir-grpc/grpc"},
-    ]
-  end
-  ```
+```elixir
+def deps do
+  [
+    {:grpc, github: "wingyplus/grpc"},
+  ]
+end
+```
 
 ## Usage
 
-1. Generate Elixir code from proto file as [protobuf-elixir](https://github.com/tony612/protobuf-elixir#usage) shows(especially the `gRPC Support` section).
+1. Generate Elixir code from proto file as [protobuf-elixir](https://github.com/tony612/protobuf-elixir#usage) shows (especially the `gRPC Support` section).
 2. Implement the server side code like below and remember to return the expected message types.
+
 ```elixir
 defmodule Helloworld.Greeter.Server do
   use GRPC.Server, service: Helloworld.Greeter.Service
@@ -88,6 +85,7 @@ $ mix grpc.server
 ```
 
 4. Call rpc:
+
 ```elixir
 iex> {:ok, channel} = GRPC.Stub.connect("localhost:50051")
 iex> request = Helloworld.HelloRequest.new(name: "grpc-elixir")
@@ -124,6 +122,11 @@ Check [examples](examples) and [interop](interop)(Interoperability Test) for som
 1. [Simple benchmark](examples/helloworld/README.md#Benchmark) by using [ghz](https://ghz.sh/)
 
 2. [Benchmark](benchmark) followed by official spec
+
+## OTP Support
+
+This library support only latest 3 versions. For example, if current OTP version is 25, this library
+will support only versions 23, 24 and 25.
 
 ## Sponsors
 

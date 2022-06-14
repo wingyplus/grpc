@@ -1,8 +1,9 @@
 defmodule GRPC.Adapter.Cowboy do
-  @moduledoc false
+  @moduledoc """
+  GRPC server adapter using Cowboy.
+  """
 
-  # A server(`GRPC.Server`) adapter using Cowboy.
-  # Cowboy req will be stored in `:payload` of `GRPC.Server.Stream`.
+  # NOTE: Cowboy req will be stored in `:payload` of `GRPC.Server.Stream`.
 
   # Waiting for this is released on hex https://github.com/ninenines/ranch/pull/227
   @dialyzer {:nowarn_function, running_info: 4}
@@ -73,16 +74,19 @@ defmodule GRPC.Adapter.Cowboy do
     end
   end
 
+  @doc false
   @spec stop(atom, GRPC.Server.servers_map()) :: :ok | {:error, :not_found}
   def stop(endpoint, servers) do
     :cowboy.stop_listener(servers_name(endpoint, servers))
   end
 
+  @doc false
   @spec read_body(GRPC.Adapter.Cowboy.Handler.state()) :: {:ok, binary}
   def read_body(%{pid: pid}) do
     Handler.read_full_body(pid)
   end
 
+  @doc false
   @spec reading_stream(GRPC.Adapter.Cowboy.Handler.state()) :: Enumerable.t()
   def reading_stream(%{pid: pid}) do
     Stream.unfold(%{pid: pid, need_more: true, buffer: <<>>}, fn acc -> read_stream(acc) end)

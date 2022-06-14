@@ -1,8 +1,7 @@
 defmodule GRPC.Adapter.Cowboy.Handler do
-  @moduledoc false
-
-  # A cowboy handler accepting all requests and calls corresponding functions
-  # defined by users.
+  @moduledoc """
+  Handling Cowboy incoming requests and calls corresponding functions.
+  """
 
   alias GRPC.Transport.HTTP2
   alias GRPC.RPCError
