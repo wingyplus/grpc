@@ -1,6 +1,6 @@
 # gRPC Elixir
 
-[![GitHub actions Status](https://github.com/wingyplus/grpc/workflows/CI/badge.svg)](https://github.com/elixir-grpc/grpc/actions)
+[![GitHub actions Status](https://github.com/wingyplus/grpc/workflows/CI/badge.svg)](https://github.com/wingyplus/grpc/actions)
 
 The forked version of https://github.com/elixir-grpc/grpc. Aim goals:
 
