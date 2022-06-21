@@ -325,7 +325,6 @@ send_request_body(Pid, Ref, fin, BodyLen, Data) ->
 %% @todo Better spec.
 -spec request_process(cowboy_req:req(), cowboy_middleware:env(), [module()]) -> ok.
 request_process(Req, Env, Middlewares) ->
-	OTP = erlang:system_info(otp_release),
 	try
 		execute(Req, Env, Middlewares)
 	catch
